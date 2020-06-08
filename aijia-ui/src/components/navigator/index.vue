@@ -1,16 +1,20 @@
 <style scoped lang="scss">
-    .navigator-container{
+    .navigator-container {
         text-align: center;
     }
 </style>
 
 <template>
     <div class="component-container navigator-container">
-        <router-link :to="{name:'index'}">App</router-link>
+        <a href="/ui">App</a>
+        |
+        <router-link :to="{name:'index'}">Index</router-link>
         |
         <router-link :to="{name:'home'}">Home</router-link>
         |
         <router-link :to="{name:'about'}">About</router-link>
+        |
+        <a href="/ui/client.html">Client</a>
     </div>
 </template>
 
