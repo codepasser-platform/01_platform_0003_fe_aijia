@@ -1,6 +1,3 @@
-console.log(process.env.VUE_APP_CONTEXT);
-console.log(process.argv);
-
 const pages_mapping = {
     /**
      * 主入口[Web]
@@ -27,20 +24,20 @@ const pages_mapping = {
     /**
      * 子入口[Client]
      */
-    // client: {
-    //     // page 的入口
-    //     entry: 'src/app-client/main.ts',
-    //     // 模板来源
-    //     template: 'public/client.html',
-    //     // 在 dist/index.html 的输出 // 独立部署时需要转换index.html
-    //     filename: 'client.html',
-    //     // 当使用 title 选项时，
-    //     // template 中的 title 标签需要是 <title><%= htmlWebpackPlugin.options.title %></title>
-    //     title: process.env.VUE_APP_TITLE,
-    //     // 在这个页面中包含的块，默认情况下会包含
-    //     // 提取出来的通用 chunk 和 vendor chunk。
-    //     chunks: ['chunk-vendors', 'chunk-common', 'client']
-    // },
+    client: {
+        // page 的入口
+        entry: 'src/app-client/main.ts',
+        // 模板来源
+        template: 'public/client.html',
+        // 在 dist/index.html 的输出 // 独立部署时需要转换index.html
+        filename: 'client.html',
+        // 当使用 title 选项时，
+        // template 中的 title 标签需要是 <title><%= htmlWebpackPlugin.options.title %></title>
+        title: process.env.VUE_APP_TITLE,
+        // 在这个页面中包含的块，默认情况下会包含
+        // 提取出来的通用 chunk 和 vendor chunk。
+        chunks: ['chunk-vendors', 'chunk-common', 'client']
+    },
 };
 
 let pages = {};
@@ -161,7 +158,7 @@ module.exports = {
                 ).end()
         });
         config.entry('app').add('babel-polyfill');
-        // config.entry('client').add('babel-polyfill');
+        config.entry('client').add('babel-polyfill');
     },
     /**
      * css loader options

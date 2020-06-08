@@ -4,7 +4,7 @@ import Home from '../views/home.vue'
 
 Vue.use(VueRouter)
 
-console.log('App router process.env > ', process.env);
+console.log('Client router process.env > ', process.env);
 
 const routes: Array<RouteConfig> = [
     {
