@@ -6,15 +6,26 @@
 
 <template>
     <div class="component-container navigator-container">
-        <a href="/ui">App</a>
-        |
-        <router-link :to="{name:'index'}">Index</router-link>
-        |
-        <router-link :to="{name:'home'}">Home</router-link>
-        |
-        <router-link :to="{name:'about'}">About</router-link>
-        |
-        <a href="/ui/client.html">Client</a>
+        <div class="navigator">
+            <a href="/ui">App</a>
+            |
+            <router-link :to="{name:'index'}">Index</router-link>
+            |
+            <router-link :to="{name:'home'}">Home</router-link>
+            |
+            <router-link :to="{name:'about'}">About</router-link>
+            |
+            <a href="/ui/client.html">Client</a>
+        </div>
+        <div class="navigator">
+            <router-link :to="{name:'401'}">401</router-link>
+            |
+            <router-link :to="{name:'403'}">403</router-link>
+            |
+            <router-link :to="{name:'404'}">404</router-link>
+            |
+            <router-link :to="{name:'500'}">500</router-link>
+        </div>
     </div>
 </template>
 

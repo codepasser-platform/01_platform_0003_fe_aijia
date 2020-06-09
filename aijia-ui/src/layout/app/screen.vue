@@ -12,9 +12,29 @@
 
 <script lang="ts">
     import Navigator from '@/components/navigator/index.vue'
+    import {mapGetters} from "vuex";
 
     const _ScreenLayout = {
         name: 'ScreenLayout',
+        created: () => {
+            console.log('[lifecycle] <ScreenLayout> --> {created}')
+        },
+        mounted: () => {
+            console.log('[lifecycle] <ScreenLayout> --> {mounted}')
+        },
+        updated: () => {
+            console.log('[lifecycle] <ScreenLayout> --> {updated}')
+        },
+        destroyed: () => {
+            console.log('[lifecycle] <ScreenLayout> --> {destroyed}')
+        },
+        data: () => {
+            return {};
+        },
+        methods: {},
+        computed: {
+            ...mapGetters([])
+        },
         components: {
             Navigator
         }
