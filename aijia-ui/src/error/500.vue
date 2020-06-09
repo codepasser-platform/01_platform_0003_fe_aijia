@@ -26,16 +26,16 @@
     const _ERROR_500 = {
         name: 'ERROR_500',
         created: () => {
-            console.log('[lifecycle] <ERROR_500> --> {created}')
+            console.log('[Lifecycle] <ERROR_500> --> {created}')
         },
         mounted: () => {
-            console.log('[lifecycle] <ERROR_500> --> {mounted}')
+            console.log('[Lifecycle] <ERROR_500> --> {mounted}')
         },
         updated: () => {
-            console.log('[lifecycle] <ERROR_500> --> {updated}')
+            console.log('[Lifecycle] <ERROR_500> --> {updated}')
         },
         destroyed: () => {
-            console.log('[lifecycle] <ERROR_500> --> {destroyed}')
+            console.log('[Lifecycle] <ERROR_500> --> {destroyed}')
         },
         data: () => {
             return {};

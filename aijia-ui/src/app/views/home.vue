@@ -14,16 +14,16 @@
     const _HomeView = {
         name: 'HomeView',
         created: () => {
-            console.log('[lifecycle] <HomeView> --> {created}')
+            console.log('[Lifecycle] <HomeView> --> {created}')
         },
         mounted: () => {
-            console.log('[lifecycle] <HomeView> --> {mounted}')
+            console.log('[Lifecycle] <HomeView> --> {mounted}')
         },
         updated: () => {
-            console.log('[lifecycle] <HomeView> --> {updated}')
+            console.log('[Lifecycle] <HomeView> --> {updated}')
         },
         destroyed: () => {
-            console.log('[lifecycle] <HomeView> --> {destroyed}')
+            console.log('[Lifecycle] <HomeView> --> {destroyed}')
         },
         data: () => {
             return {};

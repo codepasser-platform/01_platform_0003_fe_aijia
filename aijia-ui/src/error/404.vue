@@ -25,16 +25,16 @@
     const _ERROR_404 = {
         name: 'ERROR_404',
         created: () => {
-            console.log('[lifecycle] <ERROR_404> --> {created}')
+            console.log('[Lifecycle] <ERROR_404> --> {created}')
         },
         mounted: () => {
-            console.log('[lifecycle] <ERROR_404> --> {mounted}')
+            console.log('[Lifecycle] <ERROR_404> --> {mounted}')
         },
         updated: () => {
-            console.log('[lifecycle] <ERROR_404> --> {updated}')
+            console.log('[Lifecycle] <ERROR_404> --> {updated}')
         },
         destroyed: () => {
-            console.log('[lifecycle] <ERROR_404> --> {destroyed}')
+            console.log('[Lifecycle] <ERROR_404> --> {destroyed}')
         },
         data: () => {
             return {};

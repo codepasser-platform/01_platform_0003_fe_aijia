@@ -16,16 +16,16 @@
     const _IndexView = {
         name: 'IndexView',
         created: () => {
-            console.log('[lifecycle] <IndexView> --> {created}')
+            console.log('[Lifecycle] <IndexView> --> {created}')
         },
         mounted: () => {
-            console.log('[lifecycle] <IndexView> --> {mounted}')
+            console.log('[Lifecycle] <IndexView> --> {mounted}')
         },
         updated: () => {
-            console.log('[lifecycle] <IndexView> --> {updated}')
+            console.log('[Lifecycle] <IndexView> --> {updated}')
         },
         destroyed: () => {
-            console.log('[lifecycle] <IndexView> --> {destroyed}')
+            console.log('[Lifecycle] <IndexView> --> {destroyed}')
         },
         data: () => {
             return {};

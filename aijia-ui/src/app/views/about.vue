@@ -14,16 +14,16 @@
     const _AboutView = {
         name: 'AboutView',
         created: () => {
-            console.log('[lifecycle] <AboutView> --> {created}')
+            console.log('[Lifecycle] <AboutView> --> {created}')
         },
         mounted: () => {
-            console.log('[lifecycle] <AboutView> --> {mounted}')
+            console.log('[Lifecycle] <AboutView> --> {mounted}')
         },
         updated: () => {
-            console.log('[lifecycle] <AboutView> --> {updated}')
+            console.log('[Lifecycle] <AboutView> --> {updated}')
         },
         destroyed: () => {
-            console.log('[lifecycle] <AboutView> --> {destroyed}')
+            console.log('[Lifecycle] <AboutView> --> {destroyed}')
         },
         data: () => {
             return {};

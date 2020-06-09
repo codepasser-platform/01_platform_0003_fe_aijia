@@ -14,16 +14,16 @@
     const _CaseListView = {
         name: 'CaseListView',
         created: () => {
-            console.log('[lifecycle] <CaseListView> --> {created}')
+            console.log('[Lifecycle] <CaseListView> --> {created}')
         },
         mounted: () => {
-            console.log('[lifecycle] <CaseListView> --> {mounted}')
+            console.log('[Lifecycle] <CaseListView> --> {mounted}')
         },
         updated: () => {
-            console.log('[lifecycle] <CaseListView> --> {updated}')
+            console.log('[Lifecycle] <CaseListView> --> {updated}')
         },
         destroyed: () => {
-            console.log('[lifecycle] <CaseListView> --> {destroyed}')
+            console.log('[Lifecycle] <CaseListView> --> {destroyed}')
         },
         data: () => {
             return {};

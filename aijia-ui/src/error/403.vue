@@ -26,16 +26,16 @@
     const _ERROR_403 = {
         name: 'ERROR_403',
         created: () => {
-            console.log('[lifecycle] <ERROR_403> --> {created}')
+            console.log('[Lifecycle] <ERROR_403> --> {created}')
         },
         mounted: () => {
-            console.log('[lifecycle] <ERROR_403> --> {mounted}')
+            console.log('[Lifecycle] <ERROR_403> --> {mounted}')
         },
         updated: () => {
-            console.log('[lifecycle] <ERROR_403> --> {updated}')
+            console.log('[Lifecycle] <ERROR_403> --> {updated}')
         },
         destroyed: () => {
-            console.log('[lifecycle] <ERROR_403> --> {destroyed}')
+            console.log('[Lifecycle] <ERROR_403> --> {destroyed}')
         },
         data: () => {
             return {};

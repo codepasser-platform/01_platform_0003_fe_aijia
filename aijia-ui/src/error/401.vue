@@ -25,16 +25,16 @@
     const _ERROR_401 = {
         name: 'ERROR_401',
         created: () => {
-            console.log('[lifecycle] <ERROR_401> --> {created}')
+            console.log('[Lifecycle] <ERROR_401> --> {created}')
         },
         mounted: () => {
-            console.log('[lifecycle] <ERROR_401> --> {mounted}')
+            console.log('[Lifecycle] <ERROR_401> --> {mounted}')
         },
         updated: () => {
-            console.log('[lifecycle] <ERROR_401> --> {updated}')
+            console.log('[Lifecycle] <ERROR_401> --> {updated}')
         },
         destroyed: () => {
-            console.log('[lifecycle] <ERROR_401> --> {destroyed}')
+            console.log('[Lifecycle] <ERROR_401> --> {destroyed}')
         },
         data: () => {
             return {};

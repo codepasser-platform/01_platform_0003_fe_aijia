@@ -10,7 +10,7 @@ import ERROR_500 from '@/error/500.vue'
 
 Vue.use(VueRouter)
 
-console.log('App router process.env > ', process.env);
+console.log('[Environment] <App> --> {process.env}',process.env)
 
 export const constantRouterMap: Array<RouteConfig> = [
     // index
