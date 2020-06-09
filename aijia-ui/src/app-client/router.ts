@@ -1,3 +1,5 @@
+console.log('[Loading] <Router> --> {router}');
+
 import Vue from 'vue'
 import VueRouter, {RouteConfig} from 'vue-router'
 /** Layout **/
@@ -10,7 +12,7 @@ import ERROR_500 from '@/error/500.vue'
 
 Vue.use(VueRouter)
 
-export const constantRouterMap: Array<RouteConfig> = [
+export const ConstantRouterMap: Array<RouteConfig> = [
     // index
     {
         path: '/',
@@ -56,7 +58,7 @@ export const constantRouterMap: Array<RouteConfig> = [
     }
 ]
 
-export const asyncRouterMap = [
+export const AsyncRouterMap: Array<RouteConfig> = [
     //  Micro
     {
         path: '/case',
@@ -75,14 +77,14 @@ export const asyncRouterMap = [
             }
         ]
     },
-    {path: '*', redirect: '/error/404', hidden: true}
+    {path: '*', redirect: '/error/404'}
 ];
 
-const router = new VueRouter({
+const Router = new VueRouter({
     base: process.env.VUE_APP_CONTEXT,
     mode: 'history',
-    routes: constantRouterMap,
+    routes: ConstantRouterMap,
     scrollBehavior: () => ({x: 0, y: 0,})
 })
 
-export default router
+export default Router
