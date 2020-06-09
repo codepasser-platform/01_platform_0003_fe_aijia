@@ -10,8 +10,6 @@ import ERROR_500 from '@/error/500.vue'
 
 Vue.use(VueRouter)
 
-console.log('[Environment] <Client> --> {process.env}',process.env)
-
 export const constantRouterMap: Array<RouteConfig> = [
     // index
     {
@@ -24,22 +22,22 @@ export const constantRouterMap: Array<RouteConfig> = [
                 // route level code-splitting
                 // this generates a separate chunk (about.[hash].js) for this route
                 // which is lazy-loaded when the route is visited.
-                component: () => import(/* webpackChunkName: "client-index" */ './views/index.vue')
+                component: () => import(/* webpackChunkName: 'client-index' */ './views/index.vue')
             },
             {
                 path: 'client.html',
                 name: 'entry',
-                component: () => import(/* webpackChunkName: "client-entry" */ './views/index.vue')
+                component: () => import(/* webpackChunkName: 'client-entry' */ './views/index.vue')
             },
             {
                 path: 'home',
                 name: 'home',
-                component: () => import(/* webpackChunkName: "client-home" */ './views/home.vue')
+                component: () => import(/* webpackChunkName: 'client-home' */ './views/home.vue')
             },
             {
                 path: 'about',
                 name: 'about',
-                component: () => import(/* webpackChunkName: "client-about" */ './views/about.vue')
+                component: () => import(/* webpackChunkName: 'client-about' */ './views/about.vue')
             }
         ]
     },
@@ -68,12 +66,12 @@ export const asyncRouterMap = [
             {
                 path: 'list',
                 name: 'case-list',
-                component: () => import(/* webpackChunkName: "case-list" */ './views/case/list.vue')
+                component: () => import(/* webpackChunkName: 'case-list' */ './views/case/list.vue')
             },
             {
                 path: 'detail',
                 name: 'case-data',
-                component: () => import(/* webpackChunkName: "case-data" */ './views/case/detail.vue')
+                component: () => import(/* webpackChunkName: 'case-data' */ './views/case/detail.vue')
             }
         ]
     },
