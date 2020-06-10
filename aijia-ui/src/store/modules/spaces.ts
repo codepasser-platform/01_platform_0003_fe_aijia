@@ -30,4 +30,4 @@ const spaces = {
     }
 };
 
-export default spaces
+export default spaces;

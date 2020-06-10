@@ -1,3 +1,3 @@
-import './console'
-import './extends'
-import './matcher'
+import './console';
+import './extends';
+import './matcher';
