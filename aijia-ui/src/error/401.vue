@@ -32,19 +32,19 @@
         private name: string = 'ERROR_401_VIEW';
 
         created(): void {
-            console.debug('[Lifecycle] <ERROR_401_VIEW> --> {created}')
+            console.debug('[Lifecycle] <ERROR_401_VIEW> --> {created}');
         }
 
         mounted(): void {
-            console.debug('[Lifecycle] <ERROR_401_VIEW> --> {mounted}')
+            console.debug('[Lifecycle] <ERROR_401_VIEW> --> {mounted}');
         }
 
         updated(): void {
-            console.debug('[Lifecycle] <ERROR_401_VIEW> --> {updated}')
+            console.debug('[Lifecycle] <ERROR_401_VIEW> --> {updated}');
         }
 
         destroyed(): void {
-            console.debug('[Lifecycle] <ERROR_401_VIEW> --> {destroyed}')
+            console.debug('[Lifecycle] <ERROR_401_VIEW> --> {destroyed}');
         }
     };
 </script>

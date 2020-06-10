@@ -33,19 +33,19 @@
         private name: string = 'ERROR_500_VIEW';
 
         created(): void {
-            console.debug('[Lifecycle] <ERROR_500_VIEW> --> {created}')
+            console.debug('[Lifecycle] <ERROR_500_VIEW> --> {created}');
         }
 
         mounted(): void {
-            console.debug('[Lifecycle] <ERROR_500_VIEW> --> {mounted}')
+            console.debug('[Lifecycle] <ERROR_500_VIEW> --> {mounted}');
         }
 
         updated(): void {
-            console.debug('[Lifecycle] <ERROR_500_VIEW> --> {updated}')
+            console.debug('[Lifecycle] <ERROR_500_VIEW> --> {updated}');
         }
 
         destroyed(): void {
-            console.debug('[Lifecycle] <ERROR_500_VIEW> --> {destroyed}')
+            console.debug('[Lifecycle] <ERROR_500_VIEW> --> {destroyed}');
         }
     };
 </script>
