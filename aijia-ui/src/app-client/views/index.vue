@@ -32,19 +32,19 @@
         private cache: SpacesCache | undefined;
 
         created(): void {
-            console.log('[Lifecycle] <IndexView> --> {created}', this.principal, this.cache)
+            console.debug('[Lifecycle] <IndexView> --> {created}', this.principal, this.cache)
         }
 
         mounted(): void {
-            console.log('[Lifecycle] <IndexView> --> {mounted}')
+            console.debug('[Lifecycle] <IndexView> --> {mounted}')
         }
 
         updated(): void {
-            console.log('[Lifecycle] <IndexView> --> {updated}')
+            console.debug('[Lifecycle] <IndexView> --> {updated}')
         }
 
         destroyed(): void {
-            console.log('[Lifecycle] <IndexView> --> {destroyed}')
+            console.debug('[Lifecycle] <IndexView> --> {destroyed}')
         }
 
     }

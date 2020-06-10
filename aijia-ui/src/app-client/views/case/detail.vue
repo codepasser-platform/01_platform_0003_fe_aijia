@@ -5,36 +5,44 @@
 </style>
 <template>
     <div class="view-container case-view">
-        <div>this is case detail page</div>
+        <div>this is client case detail page</div>
     </div>
 </template>
 <script lang="ts">
+    import {Component, Vue} from 'vue-property-decorator';
     import {mapGetters} from "vuex";
+    import {AppPrincipal} from "@/store/modules/app";
+    import {SpacesCache} from "@/store/modules/spaces";
 
-    const _CaseDetailView = {
-        name: 'CaseDetailView',
-        created: () => {
-            console.log('[Lifecycle] <CaseDetailView> --> {created}')
-        },
-        mounted: () => {
-            console.log('[Lifecycle] <CaseDetailView> --> {mounted}')
-        },
-        updated: () => {
-            console.log('[Lifecycle] <CaseDetailView> --> {updated}')
-        },
-        destroyed: () => {
-            console.log('[Lifecycle] <CaseDetailView> --> {destroyed}')
-        },
-        data: () => {
-            return {};
-        },
-        methods: {},
+    @Component({
         computed: {
-            ...mapGetters([])
+            ...mapGetters(['principal', 'cache'])
         },
         components: {}
-    }
+    })
+    export default class CaseDetailView extends Vue {
+        private name: string = 'CaseDetailView';
 
-    export default _CaseDetailView;
+        private principal: AppPrincipal | undefined;
+
+        private cache: SpacesCache | undefined;
+
+        created(): void {
+            console.debug('[Lifecycle] <CaseDetailView> --> {created}', this.principal, this.cache)
+        }
+
+        mounted(): void {
+            console.debug('[Lifecycle] <CaseDetailView> --> {mounted}')
+        }
+
+        updated(): void {
+            console.debug('[Lifecycle] <CaseDetailView> --> {updated}')
+        }
+
+        destroyed(): void {
+            console.debug('[Lifecycle] <CaseDetailView> --> {destroyed}')
+        }
+
+    }
 </script>
 
