@@ -5,7 +5,7 @@
 </style>
 <template>
     <div class="view-container case-view">
-        <div>this is case list page</div>
+        <div>this is case detail page</div>
     </div>
 </template>
 <script lang="ts">

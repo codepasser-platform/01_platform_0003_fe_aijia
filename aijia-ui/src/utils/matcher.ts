@@ -5,19 +5,19 @@ interface Matchable {
 }
 
 export class RouterMatcher implements Matchable {
-    private _whitePatterns: Array<String> = new Array<String>();
+    private _whitePatterns: string[] | [];
     private SUFFIX_CHARACTER: string = '/**';
     private SUFFIX_PATTERN: string = '/\\*\\*';
 
-    constructor(whiteList: Array<String>) {
+    constructor(whiteList: string[]) {
         this._whitePatterns = whiteList;
     }
 
-    get whitePatterns(): Array<String> {
+    get whitePatterns(): string[] {
         return this._whitePatterns;
     }
 
-    set whitePatterns(value: Array<String>) {
+    set whitePatterns(value: string[]) {
         this._whitePatterns = value;
     }
 
@@ -40,3 +40,4 @@ export class RouterMatcher implements Matchable {
 }
 
 
+export default RouterMatcher;

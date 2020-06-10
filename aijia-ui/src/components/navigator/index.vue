@@ -26,6 +26,11 @@
             |
             <router-link :to="{name:'500'}">500</router-link>
         </div>
+        <div class="navigator">
+            <router-link :to="{name:'case-list',query:{a:1},hash:'#1',params:{b:1}}">case-list</router-link>
+            |
+            <router-link :to="{name:'case-detail',query:{a:2},hash:'#2',params:{b:2}}">case-detail</router-link>
+        </div>
     </div>
 </template>
 

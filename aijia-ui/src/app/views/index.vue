@@ -10,35 +10,43 @@
     </div>
 </template>
 <script lang="ts">
-    import Welcome from '@/components/welcome.vue'
+    import Welcome from '@/components/welcome.vue';
+    import {Component, Vue} from 'vue-property-decorator';
     import {mapGetters} from "vuex";
+    import {AppPrincipal} from "@/store/modules/app";
+    import {SpacesCache} from "@/store/modules/spaces";
 
-    const _IndexView = {
-        name: 'IndexView',
-        created: () => {
-            console.log('[Lifecycle] <IndexView> --> {created}')
-        },
-        mounted: () => {
-            console.log('[Lifecycle] <IndexView> --> {mounted}')
-        },
-        updated: () => {
-            console.log('[Lifecycle] <IndexView> --> {updated}')
-        },
-        destroyed: () => {
-            console.log('[Lifecycle] <IndexView> --> {destroyed}')
-        },
-        data: () => {
-            return {};
-        },
-        methods: {},
+    @Component({
         computed: {
-            ...mapGetters([])
+            ...mapGetters(['principal', 'cache'])
         },
         components: {
             Welcome
         }
-    }
+    })
+    export default class IndexView extends Vue {
+        private name: string = 'IndexView';
 
-    export default _IndexView;
+        private principal: AppPrincipal | undefined;
+
+        private cache: SpacesCache | undefined;
+
+        created(): void {
+            console.log('[Lifecycle] <IndexView> --> {created}', this.principal, this.cache)
+        }
+
+        mounted(): void {
+            console.log('[Lifecycle] <IndexView> --> {mounted}')
+        }
+
+        updated(): void {
+            console.log('[Lifecycle] <IndexView> --> {updated}')
+        }
+
+        destroyed(): void {
+            console.log('[Lifecycle] <IndexView> --> {destroyed}')
+        }
+
+    }
 </script>
 
