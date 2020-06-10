@@ -3,15 +3,15 @@ import '@/registerServiceWorker'
 import '@/utils'
 import store from '@/store'
 
-import Client from './client.vue'
-import Router from './router'
-import RouterGuard from './router-guard'
+import client from './client.vue'
+import router from './router'
+import router_guard from './router-guard'
 
 Vue.config.productionTip = false
-RouterGuard.listener();
+router_guard.listener();
 
 new Vue({
-    router: Router,
-    store,
-    render: h => h(Client)
+    router: router,
+    store: store,
+    render: h => h(client)
 }).$mount('#application')

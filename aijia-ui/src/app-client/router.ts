@@ -12,7 +12,7 @@ import ERROR_500 from '@/error/500.vue'
 
 Vue.use(VueRouter)
 
-export const ConstantRouterMap: Array<RouteConfig> = [
+export const constantRouterMap: Array<RouteConfig> = [
     // index
     {
         path: '/',
@@ -58,7 +58,7 @@ export const ConstantRouterMap: Array<RouteConfig> = [
     }
 ]
 
-export const AsyncRouterMap: Array<RouteConfig> = [
+export const asyncRouterMap: Array<RouteConfig> = [
     //  Micro
     {
         path: '/case',
@@ -68,23 +68,23 @@ export const AsyncRouterMap: Array<RouteConfig> = [
             {
                 path: 'list',
                 name: 'case-list',
-                component: () => import(/* webpackChunkName: 'case-list' */ './views/case/list.vue')
+                component: () => import(/* webpackChunkName: 'client-case-list' */ './views/case/list.vue')
             },
             {
                 path: 'detail',
-                name: 'case-data',
-                component: () => import(/* webpackChunkName: 'case-data' */ './views/case/detail.vue')
+                name: 'case-detail',
+                component: () => import(/* webpackChunkName: 'client-case-detail' */ './views/case/detail.vue')
             }
         ]
     },
     {path: '*', redirect: '/error/404'}
 ];
 
-const Router = new VueRouter({
+const router = new VueRouter({
     base: process.env.VUE_APP_CONTEXT,
     mode: 'history',
-    routes: ConstantRouterMap,
+    routes: constantRouterMap,
     scrollBehavior: () => ({x: 0, y: 0,})
 })
 
-export default Router
+export default router
