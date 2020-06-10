@@ -8,7 +8,7 @@ export class RouterGuard {
 
     private permission(): void {
         Router.beforeEach((to, from, next) => {
-            console.debug('[Listener] <Router> --> {permission}', from.path, to.path);
+            console.log('[Listener] <Router> --> {permission}', from.path, to.path);
             next();
         });
     }
