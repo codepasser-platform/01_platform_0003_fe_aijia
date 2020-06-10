@@ -81,13 +81,13 @@ export class RouterGuard {
         router.addRoutes(asyncRouterMap);
         this.initialized = true;
         console.log('[Listener] <RouterGuard> --> {initializeRouter}', '[{from : ', from.path, '},{to : ', to.path + '}]');
-    };
+    }
 
 
     private initializePrincipal = function () {
         // TODO user principal with api load
         store.commit('SET_PRINCIPAL', {username: "admin"});
-    };
+    }
 
 }
 

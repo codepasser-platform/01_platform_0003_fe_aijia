@@ -21,43 +21,43 @@
         private name: string = 'Client';
 
         beforeCreate(): void {
-            console.debug('[Lifecycle] <Client> --> {beforeCreate}')
+            console.debug('[Lifecycle] <Client> --> {beforeCreate}');
         }
 
         created(): void {
-            console.debug('[Lifecycle] <Client> --> {created}')
+            console.debug('[Lifecycle] <Client> --> {created}');
         }
 
         beforeMount(): void {
-            console.debug('[Lifecycle] <Client> --> {beforeMount}')
+            console.debug('[Lifecycle] <Client> --> {beforeMount}');
         }
 
         mounted(): void {
-            console.debug('[Lifecycle] <Client> --> {mounted}')
+            console.debug('[Lifecycle] <Client> --> {mounted}');
         }
 
         beforeUpdate(): void {
-            console.debug('[Lifecycle] <Client> --> {beforeUpdate}')
+            console.debug('[Lifecycle] <Client> --> {beforeUpdate}');
         }
 
         updated(): void {
-            console.debug('[Lifecycle] <Client> --> {updated}')
+            console.debug('[Lifecycle] <Client> --> {updated}');
         }
 
         activated(): void {
-            console.debug('[Lifecycle] <Client> --> {activated}')
+            console.debug('[Lifecycle] <Client> --> {activated}');
         }
 
         deactivated(): void {
-            console.debug('[Lifecycle] <Client> --> {deactivated}')
+            console.debug('[Lifecycle] <Client> --> {deactivated}');
         }
 
         beforeDestroy(): void {
-            console.debug('[Lifecycle] <Client> --> {beforeDestroy}')
+            console.debug('[Lifecycle] <Client> --> {beforeDestroy}');
         }
 
         destroyed(): void {
-            console.debug('[Lifecycle] <Client> --> {destroyed}')
+            console.debug('[Lifecycle] <Client> --> {destroyed}');
         }
     }
 </script>

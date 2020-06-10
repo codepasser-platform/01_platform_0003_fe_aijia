@@ -28,19 +28,19 @@
         private cache: SpacesCache | undefined;
 
         created(): void {
-            console.debug('[Lifecycle] <CaseDetailView> --> {created}', this.principal, this.cache)
+            console.debug('[Lifecycle] <CaseDetailView> --> {created}', this.principal, this.cache);
         }
 
         mounted(): void {
-            console.debug('[Lifecycle] <CaseDetailView> --> {mounted}')
+            console.debug('[Lifecycle] <CaseDetailView> --> {mounted}');
         }
 
         updated(): void {
-            console.debug('[Lifecycle] <CaseDetailView> --> {updated}')
+            console.debug('[Lifecycle] <CaseDetailView> --> {updated}');
         }
 
         destroyed(): void {
-            console.debug('[Lifecycle] <CaseDetailView> --> {destroyed}')
+            console.debug('[Lifecycle] <CaseDetailView> --> {destroyed}');
         }
 
     }

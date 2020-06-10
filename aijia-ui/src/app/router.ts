@@ -1,16 +1,16 @@
 console.log('[Loading] <Router> --> {router}');
 
-import Vue from 'vue'
-import VueRouter, {RouteConfig} from 'vue-router'
+import Vue from 'vue';
+import VueRouter, {RouteConfig} from 'vue-router';
 /** Layout **/
-import ScreenLayout from '@/layout/app/screen.vue'
+import ScreenLayout from '@/layout/app/screen.vue';
 /** Error **/
-import ERROR_401 from '@/error/401.vue'
-import ERROR_403 from '@/error/403.vue'
-import ERROR_404 from '@/error/404.vue'
-import ERROR_500 from '@/error/500.vue'
+import ERROR_401 from '@/error/401.vue';
+import ERROR_403 from '@/error/403.vue';
+import ERROR_404 from '@/error/404.vue';
+import ERROR_500 from '@/error/500.vue';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 export const constantRouterMap: Array<RouteConfig> = [
     // index
@@ -51,7 +51,7 @@ export const constantRouterMap: Array<RouteConfig> = [
             {path: '500', name: '500', component: ERROR_500, meta: {title: '500', hidden: true}}
         ]
     }
-]
+];
 
 export const asyncRouterMap: Array<RouteConfig> = [
     //  Micro
@@ -80,6 +80,6 @@ const router = new VueRouter({
     mode: 'history',
     routes: constantRouterMap,
     scrollBehavior: () => ({x: 0, y: 0,})
-})
+});
 
-export default router
+export default router;

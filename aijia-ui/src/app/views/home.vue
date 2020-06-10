@@ -28,19 +28,19 @@
         private cache: SpacesCache | undefined;
 
         created(): void {
-            console.debug('[Lifecycle] <HomeView> --> {created}', this.principal, this.cache)
+            console.debug('[Lifecycle] <HomeView> --> {created}', this.principal, this.cache);
         }
 
         mounted(): void {
-            console.debug('[Lifecycle] <HomeView> --> {mounted}')
+            console.debug('[Lifecycle] <HomeView> --> {mounted}');
         }
 
         updated(): void {
-            console.debug('[Lifecycle] <HomeView> --> {updated}')
+            console.debug('[Lifecycle] <HomeView> --> {updated}');
         }
 
         destroyed(): void {
-            console.debug('[Lifecycle] <HomeView> --> {destroyed}')
+            console.debug('[Lifecycle] <HomeView> --> {destroyed}');
         }
 
     }
