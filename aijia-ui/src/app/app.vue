@@ -8,7 +8,6 @@
 </template>
 
 <script lang="ts">
-    import Welcome from '@/components/welcome.vue';
     import {Component, Vue} from 'vue-property-decorator';
     import {mapGetters} from "vuex";
 
@@ -16,9 +15,7 @@
         computed: {
             ...mapGetters([])
         },
-        components: {
-            Welcome
-        }
+        components: {}
     })
     export default class App extends Vue {
         private name: string = 'App';

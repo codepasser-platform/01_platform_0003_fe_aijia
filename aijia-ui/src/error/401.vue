@@ -17,33 +17,34 @@
         </div>
     </div>
 </template>
-
 <!-- Script -->
-<script>
-    import {mapGetters} from 'vuex';
+<script lang="ts">
+    import {Component, Vue} from 'vue-property-decorator';
+    import {mapGetters} from "vuex";
 
-    const _ERROR_401 = {
-        name: 'ERROR_401',
-        created: () => {
-            console.log('[Lifecycle] <ERROR_401> --> {created}')
-        },
-        mounted: () => {
-            console.log('[Lifecycle] <ERROR_401> --> {mounted}')
-        },
-        updated: () => {
-            console.log('[Lifecycle] <ERROR_401> --> {updated}')
-        },
-        destroyed: () => {
-            console.log('[Lifecycle] <ERROR_401> --> {destroyed}')
-        },
-        data: () => {
-            return {};
-        },
-        methods: {},
+    @Component({
         computed: {
             ...mapGetters([])
         },
         components: {}
+    })
+    export default class ERROR_401_VIEW extends Vue {
+        private name: string = 'ERROR_401_VIEW';
+
+        created(): void {
+            console.debug('[Lifecycle] <ERROR_401_VIEW> --> {created}')
+        }
+
+        mounted(): void {
+            console.debug('[Lifecycle] <ERROR_401_VIEW> --> {mounted}')
+        }
+
+        updated(): void {
+            console.debug('[Lifecycle] <ERROR_401_VIEW> --> {updated}')
+        }
+
+        destroyed(): void {
+            console.debug('[Lifecycle] <ERROR_401_VIEW> --> {destroyed}')
+        }
     };
-    export default _ERROR_401;
 </script>

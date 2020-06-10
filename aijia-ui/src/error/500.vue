@@ -18,33 +18,34 @@
 
     </div>
 </template>
-
 <!-- Script -->
-<script>
-    import {mapGetters} from 'vuex';
+<script lang="ts">
+    import {Component, Vue} from 'vue-property-decorator';
+    import {mapGetters} from "vuex";
 
-    const _ERROR_500 = {
-        name: 'ERROR_500',
-        created: () => {
-            console.log('[Lifecycle] <ERROR_500> --> {created}')
-        },
-        mounted: () => {
-            console.log('[Lifecycle] <ERROR_500> --> {mounted}')
-        },
-        updated: () => {
-            console.log('[Lifecycle] <ERROR_500> --> {updated}')
-        },
-        destroyed: () => {
-            console.log('[Lifecycle] <ERROR_500> --> {destroyed}')
-        },
-        data: () => {
-            return {};
-        },
-        methods: {},
+    @Component({
         computed: {
             ...mapGetters([])
         },
         components: {}
+    })
+    export default class ERROR_500_VIEW extends Vue {
+        private name: string = 'ERROR_500_VIEW';
+
+        created(): void {
+            console.debug('[Lifecycle] <ERROR_500_VIEW> --> {created}')
+        }
+
+        mounted(): void {
+            console.debug('[Lifecycle] <ERROR_500_VIEW> --> {mounted}')
+        }
+
+        updated(): void {
+            console.debug('[Lifecycle] <ERROR_500_VIEW> --> {updated}')
+        }
+
+        destroyed(): void {
+            console.debug('[Lifecycle] <ERROR_500_VIEW> --> {destroyed}')
+        }
     };
-    export default _ERROR_500;
 </script>

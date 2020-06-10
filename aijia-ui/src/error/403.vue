@@ -18,33 +18,34 @@
 
     </div>
 </template>
-
 <!-- Script -->
-<script>
-    import {mapGetters} from 'vuex';
+<script lang="ts">
+    import {Component, Vue} from 'vue-property-decorator';
+    import {mapGetters} from "vuex";
 
-    const _ERROR_403 = {
-        name: 'ERROR_403',
-        created: () => {
-            console.log('[Lifecycle] <ERROR_403> --> {created}')
-        },
-        mounted: () => {
-            console.log('[Lifecycle] <ERROR_403> --> {mounted}')
-        },
-        updated: () => {
-            console.log('[Lifecycle] <ERROR_403> --> {updated}')
-        },
-        destroyed: () => {
-            console.log('[Lifecycle] <ERROR_403> --> {destroyed}')
-        },
-        data: () => {
-            return {};
-        },
-        methods: {},
+    @Component({
         computed: {
             ...mapGetters([])
         },
         components: {}
+    })
+    export default class ERROR_403_VIEW extends Vue {
+        private name: string = 'ERROR_403_VIEW';
+
+        created(): void {
+            console.debug('[Lifecycle] <ERROR_403_VIEW> --> {created}')
+        }
+
+        mounted(): void {
+            console.debug('[Lifecycle] <ERROR_403_VIEW> --> {mounted}')
+        }
+
+        updated(): void {
+            console.debug('[Lifecycle] <ERROR_403_VIEW> --> {updated}')
+        }
+
+        destroyed(): void {
+            console.debug('[Lifecycle] <ERROR_403_VIEW> --> {destroyed}')
+        }
     };
-    export default _ERROR_403;
 </script>
