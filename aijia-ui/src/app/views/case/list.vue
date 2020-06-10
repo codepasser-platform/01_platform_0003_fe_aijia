@@ -9,32 +9,40 @@
     </div>
 </template>
 <script lang="ts">
+    import {Component, Vue} from 'vue-property-decorator';
     import {mapGetters} from "vuex";
+    import {AppPrincipal} from "@/store/modules/app";
+    import {SpacesCache} from "@/store/modules/spaces";
 
-    const _CaseListView = {
-        name: 'CaseListView',
-        created: () => {
-            console.log('[Lifecycle] <CaseListView> --> {created}')
-        },
-        mounted: () => {
-            console.log('[Lifecycle] <CaseListView> --> {mounted}')
-        },
-        updated: () => {
-            console.log('[Lifecycle] <CaseListView> --> {updated}')
-        },
-        destroyed: () => {
-            console.log('[Lifecycle] <CaseListView> --> {destroyed}')
-        },
-        data: () => {
-            return {};
-        },
-        methods: {},
+    @Component({
         computed: {
-            ...mapGetters([])
+            ...mapGetters(['principal', 'cache'])
         },
         components: {}
-    }
+    })
+    export default class CaseListView extends Vue {
+        private name: string = 'CaseListView';
 
-    export default _CaseListView;
+        private principal: AppPrincipal | undefined;
+
+        private cache: SpacesCache | undefined;
+
+        created(): void {
+            console.debug('[Lifecycle] <CaseListView> --> {created}', this.principal, this.cache)
+        }
+
+        mounted(): void {
+            console.debug('[Lifecycle] <CaseListView> --> {mounted}')
+        }
+
+        updated(): void {
+            console.debug('[Lifecycle] <CaseListView> --> {updated}')
+        }
+
+        destroyed(): void {
+            console.debug('[Lifecycle] <CaseListView> --> {destroyed}')
+        }
+
+    }
 </script>
 

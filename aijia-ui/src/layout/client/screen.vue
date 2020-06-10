@@ -17,16 +17,16 @@
     const _ScreenLayout = {
         name: 'ScreenLayout',
         created: () => {
-            console.log('[Lifecycle] <ScreenLayout> --> {created}')
+            console.debug('[Lifecycle] <ScreenLayout> --> {created}')
         },
         mounted: () => {
-            console.log('[Lifecycle] <ScreenLayout> --> {mounted}')
+            console.debug('[Lifecycle] <ScreenLayout> --> {mounted}')
         },
         updated: () => {
-            console.log('[Lifecycle] <ScreenLayout> --> {updated}')
+            console.debug('[Lifecycle] <ScreenLayout> --> {updated}')
         },
         destroyed: () => {
-            console.log('[Lifecycle] <ScreenLayout> --> {destroyed}')
+            console.debug('[Lifecycle] <ScreenLayout> --> {destroyed}')
         },
         data: () => {
             return {};

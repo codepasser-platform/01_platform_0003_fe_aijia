@@ -9,32 +9,40 @@
     </div>
 </template>
 <script lang="ts">
+    import {Component, Vue} from 'vue-property-decorator';
     import {mapGetters} from "vuex";
+    import {AppPrincipal} from "@/store/modules/app";
+    import {SpacesCache} from "@/store/modules/spaces";
 
-    const _AboutView = {
-        name: 'AboutView',
-        created: () => {
-            console.log('[Lifecycle] <AboutView> --> {created}')
-        },
-        mounted: () => {
-            console.log('[Lifecycle] <AboutView> --> {mounted}')
-        },
-        updated: () => {
-            console.log('[Lifecycle] <AboutView> --> {updated}')
-        },
-        destroyed: () => {
-            console.log('[Lifecycle] <AboutView> --> {destroyed}')
-        },
-        data: () => {
-            return {};
-        },
-        methods: {},
+    @Component({
         computed: {
-            ...mapGetters([])
+            ...mapGetters(['principal', 'cache'])
         },
         components: {}
-    }
+    })
+    export default class AboutView extends Vue {
+        private name: string = 'AboutView';
 
-    export default _AboutView;
+        private principal: AppPrincipal | undefined;
+
+        private cache: SpacesCache | undefined;
+
+        created(): void {
+            console.debug('[Lifecycle] <AboutView> --> {created}', this.principal, this.cache)
+        }
+
+        mounted(): void {
+            console.debug('[Lifecycle] <AboutView> --> {mounted}')
+        }
+
+        updated(): void {
+            console.debug('[Lifecycle] <AboutView> --> {updated}')
+        }
+
+        destroyed(): void {
+            console.debug('[Lifecycle] <AboutView> --> {destroyed}')
+        }
+
+    }
 </script>
 
