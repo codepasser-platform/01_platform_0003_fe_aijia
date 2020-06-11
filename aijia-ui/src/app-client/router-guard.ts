@@ -1,9 +1,11 @@
 console.log('[Loading] <Router> --> {guard}');
 
+import {AppPrincipal, SessionStatus} from "@/store/modules/app";
 import {NavigationGuardNext, RawLocation, Route} from 'vue-router';
 import router, {asyncRouterMap} from './router';
 import store from '@/store';
 import RouterMatcher from '@/utils/matcher';
+import {_me, _status} from "@/services/api/session-api";
 
 const WHITELIST: string[] = ['/', '/client.html', '/error/401', '/error/403', '/error/404', '/error/500', '/guide/**'];
 
@@ -44,15 +46,25 @@ export class RouterGuard {
         }
 
         // 3 未登录处理
-        if (!store.state.app.principal) {
-            this.initializePrincipal();
-            if (store.state.app.principal) {
-                console.log('[Listener] <RouterGuard> --> {permission} ---> principal check pass', '[{principal : ', store.state.app.principal, '}]');
-                this.routeHandle(to, from, next);
+        this.sessionStatus().then((response) => {
+            console.log('[Listener] <RouterGuard> --> {permission} ---> status', '[{response : ', response.data.session, '}]');
+            if (response && response.data && response.data.session === SessionStatus.AUTHORIZED) {
+                this.sessionMe().then((_response) => {
+                    console.log('[Listener] <RouterGuard> --> {permission} ---> me', '[{response : ', _response.data, '}]');
+                    this.initializePrincipal(_response.data);
+                    this.routeHandle(to, from, next);
+                }).catch((_reason) => {
+                    console.error('[Listener] <RouterGuard> --> {permission} ---> me', '[{reason : ', _reason, '}]');
+                    this.routeHandle(to, from, next, {path: '/error/500', hash: to.hash, query: to.query, params: to.params});
+                })
             } else {
-                this.routeHandle(to, from, next, {path: '/error/403', hash: to.hash, query: to.query, params: to.params});
+                this.routeHandle(to, from, next, {path: '/error/401', hash: to.hash, query: to.query, params: to.params});
             }
-        }
+        }).catch((reason) => {
+            console.error('[Listener] <RouterGuard> --> {permission} ---> status', '[{reason : ', reason, '}]');
+            this.routeHandle(to, from, next, {path: '/error/500', hash: to.hash, query: to.query, params: to.params});
+        });
+        return;
     }
 
     private routeHandle(to: Route, from: Route, next: NavigationGuardNext<Vue>, redirect?: RawLocation): void {
@@ -80,14 +92,35 @@ export class RouterGuard {
         // async routers
         router.addRoutes(asyncRouterMap);
         this.initialized = true;
-        console.log('[Listener] <RouterGuard> --> {initializeRouter}', '[{from : ', from.path, '},{to : ', to.path + '}]');
+        console.log('[Listener] <RouterGuard> --> {initialize} ---> router', '[{from : ', from.path, '},{to : ', to.path + '}]');
     }
 
-
-    private initializePrincipal = function () {
-        // TODO user principal with api load
-        store.commit('SET_PRINCIPAL', {username: "admin"});
+    private initializePrincipal(principal: AppPrincipal): void {
+        // TODO principal permission with api load
+        store.commit('SET_PRINCIPAL', principal);
+        console.log('[Listener] <RouterGuard> --> {initialize} ---> principal', '[{principal : ', principal, '}]');
     }
+
+    private sessionStatus(): Promise<any> {
+        return new Promise((resolve, reject) => {
+            _status().then((response) => {
+                resolve(response);
+            }).catch((reason) => {
+                reject(reason);
+            })
+        });
+    }
+
+    private sessionMe(): Promise<any> {
+        return new Promise((resolve, reject) => {
+            _me().then((response) => {
+                resolve(response);
+            }).catch((reason) => {
+                reject(reason);
+            })
+        });
+    }
+
 
 }
 

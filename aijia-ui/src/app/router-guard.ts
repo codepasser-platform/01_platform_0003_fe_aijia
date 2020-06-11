@@ -1,11 +1,11 @@
+console.log('[Loading] <Router> --> {guard}');
+
 import {AppPrincipal, SessionStatus} from "@/store/modules/app";
 import {NavigationGuardNext, RawLocation, Route} from 'vue-router';
 import router, {asyncRouterMap} from './router';
 import store from '@/store';
 import RouterMatcher from '@/utils/matcher';
 import {_me, _status} from "@/services/api/session-api";
-
-console.log('[Loading] <Router> --> {guard}');
 
 const WHITELIST: string[] = ['/', '/error/401', '/error/403', '/error/404', '/error/500', '/guide/**'];
 
@@ -96,7 +96,7 @@ export class RouterGuard {
     }
 
     private initializePrincipal(principal: AppPrincipal): void {
-        // TODO user principal with api load
+        // TODO principal permission with api load
         store.commit('SET_PRINCIPAL', principal);
         console.log('[Listener] <RouterGuard> --> {initialize} ---> principal', '[{principal : ', principal, '}]');
     }
