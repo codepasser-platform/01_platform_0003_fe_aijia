@@ -21,7 +21,7 @@ const spaces = {
     },
     actions: {
         setCache: ({commit}: any, cache: SpacesCache) => {
-            return new Promise(function (resolve, reject) {
+            return new Promise((resolve, reject) => {
                 // console.log('setCache >', cache);
                 commit('SET_CACHE', cache);
                 resolve(cache);

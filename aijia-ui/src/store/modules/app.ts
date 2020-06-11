@@ -1,3 +1,8 @@
+export enum SessionStatus {
+    ANONYMOUS = 'ANONYMOUS',
+    AUTHORIZED = 'AUTHORIZED'
+}
+
 export interface AppOrg {
     id: string;
     name: string;
@@ -35,7 +40,7 @@ const app = {
     },
     actions: {
         setPrincipal: ({commit}: any, principal: AppPrincipal) => {
-            return new Promise(function (resolve, reject) {
+            return new Promise((resolve, reject) => {
                 // console.log('setPrincipal >', principal);
                 commit('SET_PRINCIPAL', principal);
                 resolve(principal);

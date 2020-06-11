@@ -26,7 +26,7 @@ const _sampleMockSearch = function (options: any) {
                 is_admin: true
             }
         ]
-    }
+    };
 };
 
 /**
