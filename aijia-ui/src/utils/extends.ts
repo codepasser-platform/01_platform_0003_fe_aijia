@@ -1,4 +1,3 @@
-console.log('[Loading] <Utils> --> {extends}')
 declare global {
     interface Number {
         thousandsSeparator: () => string;

@@ -1,5 +1,3 @@
-console.log('[Loading] <Utils> --> {matcher}');
-
 interface Matchable {
     matchPath: (path: string) => boolean;
 }

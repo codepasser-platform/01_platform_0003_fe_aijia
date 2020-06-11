@@ -1,6 +1,4 @@
 console.log('[Environment] <Process> --> {env}', process.env);
-console.log('[Loading] <Utils> --> {console}');
-
 // Extends window console
 class ConsoleOverride implements Console {
     memory: any;
