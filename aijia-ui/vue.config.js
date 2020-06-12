@@ -197,7 +197,7 @@ module.exports = {
                             /* 设置要替换的最小像素值 */
                             minPixelValue: 0,
                             /* 排除路径 (reg)*/
-                            exclude: /(node_modules)|(app\\)|(app\/)/
+                            exclude: /(node_modules)|(error)|(app\\)|(app\/)/
                         }
                     )
                 ]
