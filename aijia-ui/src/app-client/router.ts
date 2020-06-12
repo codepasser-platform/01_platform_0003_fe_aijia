@@ -37,9 +37,9 @@ export const constantRouterMap: Array<RouteConfig> = [
                 component: () => import(/* webpackChunkName: 'client-home' */ './views/home.vue')
             },
             {
-                path: 'about',
-                name: 'about',
-                component: () => import(/* webpackChunkName: 'client-about' */ './views/about.vue')
+                path: 'profile',
+                name: 'profile',
+                component: () => import(/* webpackChunkName: 'client-profile' */ './views/profile.vue')
             }
         ]
     },

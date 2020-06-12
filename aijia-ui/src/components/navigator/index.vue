@@ -13,7 +13,7 @@
             |
             <router-link :to="{name:'home'}">Home</router-link>
             |
-            <router-link :to="{name:'about'}">About</router-link>
+            <router-link :to="{name:'profile'}">Profile</router-link>
             |
             <a href="/ui/client.html">Client</a>
         </div>

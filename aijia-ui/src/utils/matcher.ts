@@ -1,14 +1,25 @@
 interface Matchable {
-    matchPath: (path: string) => boolean;
+    matchPath: (patterns: string[], path: string) => boolean;
 }
 
 export class RouterMatcher implements Matchable {
+    private _staticPatterns: string[] | [];
     private _whitePatterns: string[] | [];
     private SUFFIX_CHARACTER: string = '/**';
     private SUFFIX_PATTERN: string = '/\\*\\*';
 
-    constructor(whiteList: string[]) {
+    constructor(staticList: string[], whiteList: string[]) {
+        this._staticPatterns = staticList;
         this._whitePatterns = whiteList;
+    }
+
+
+    get staticPatterns(): string[] | [] {
+        return this._staticPatterns;
+    }
+
+    set staticPatterns(value: string[] | []) {
+        this._staticPatterns = value;
     }
 
     get whitePatterns(): string[] {
@@ -19,14 +30,22 @@ export class RouterMatcher implements Matchable {
         this._whitePatterns = value;
     }
 
-    matchPath(path: string): boolean {
-        if (this.whitePatterns.indexOf(path) !== -1) {
+    matchWhiteList(path: string): boolean {
+        return this.matchPath(this.whitePatterns, path);
+    }
+
+    matchStaticList(path: string): boolean {
+        return this.matchPath(this.staticPatterns, path);
+    }
+
+    matchPath(patterns: string[], path: string): boolean {
+        if (patterns.indexOf(path) !== -1) {
             // console.log('find perfect match > ', path, patterns.indexOf(path));
             return true;
         }
-        for (let i = 0; i < this.whitePatterns.length; i++) {
-            if (this.whitePatterns[i].endWith(this.SUFFIX_PATTERN)) {
-                let _start_with = this.whitePatterns[i].substring(0, this.whitePatterns[i].indexOf(this.SUFFIX_CHARACTER));
+        for (let i = 0; i < patterns.length; i++) {
+            if (patterns[i].endWith(this.SUFFIX_PATTERN)) {
+                let _start_with = patterns[i].substring(0, patterns[i].indexOf(this.SUFFIX_CHARACTER));
                 // console.log('find pattern end with /** > ', path, patterns[i], _start_with,
                 if (path.startWith(_start_with)) {
                     return true;

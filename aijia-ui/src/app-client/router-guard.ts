@@ -7,13 +7,15 @@ import store from '@/store';
 import RouterMatcher from '@/utils/matcher';
 import {_me, _status} from "@/services/api/session-api";
 
-const WHITELIST: string[] = ['/', '/client.html', '/error/401', '/error/403', '/error/404', '/error/500', '/guide/**'];
+// 静态目录[不主动获取session principal]
+const STATIC_LIST: string[] = ['/', '/client.html', '/error/401', '/error/403', '/error/404', '/error/500'];
+// 白名单[主动获取session principal]
+const WHITE_LIST: string[] = ['/home']; // '/profile'
 
 export class RouterGuard {
 
-    private routerMatcher: RouterMatcher = new RouterMatcher(WHITELIST);
+    private routerMatcher: RouterMatcher = new RouterMatcher(STATIC_LIST, WHITE_LIST);
     private initialized: boolean = false;
-    private exception_occurred: boolean = false;
 
     constructor() {
     }
@@ -29,19 +31,22 @@ export class RouterGuard {
     }
 
     private permission(to: Route, from: Route, next: NavigationGuardNext<Vue>): void {
-        let whitelistMatchResult = this.routerMatcher.matchPath(to.path);
-        console.log('[Listener] <RouterGuard> --> {permission}', '[{from : ', from.path, '},{to : ', to.path, '},{whitelist : ', whitelistMatchResult + '}]');
+        let whitelistMatchResult = this.routerMatcher.matchWhiteList(to.path);
+        let staticListMatchResult = this.routerMatcher.matchStaticList(to.path);
+        console.log('[Listener] <RouterGuard> --> {permission}', '[{from : ', from.path, '},{to : ', to.path, '},{whitelist : ', whitelistMatchResult, '},{static : ', staticListMatchResult + '}]');
+
+        // 0 静态访问
+        if (staticListMatchResult) {
+            console.log('[Listener] <RouterGuard> --> {permission} ---> static check pass', '[{to : ', to.path + '}]');
+            this.routeHandle(to, from, next);
+            return;
+        }
+
         // 1 已登录
         console.log('[Listener] <RouterGuard> --> {permission} ---> principal check', '[{principal : ', store.state.app.principal, '}]');
         if (store.state.app.principal) {
             console.log('[Listener] <RouterGuard> --> {permission} ---> principal check pass', '[{principal : ', store.state.app.principal, '}]');
             this.routeHandle(to, from, next);
-            return;
-        }
-
-        if (this.exception_occurred) {
-            console.error('[Listener] <RouterGuard> --> {permission} ---> server exception occurred');
-            next();
             return;
         }
 
@@ -55,7 +60,6 @@ export class RouterGuard {
                     this.initializePrincipal(_response.data);
                     this.routeHandle(to, from, next);
                 }).catch((_reason) => {
-                    this.exception_occurred = true;
                     console.error('[Listener] <RouterGuard> --> {permission} ---> me', '[{reason : ', _reason, '}]');
                     this.routeHandle(to, from, next, {path: '/error/500', hash: to.hash, query: to.query, params: to.params});
                 })
@@ -71,7 +75,6 @@ export class RouterGuard {
             }
         }).catch((reason) => {
             console.error('[Listener] <RouterGuard> --> {permission} ---> status', '[{reason : ', reason, '}]');
-            this.exception_occurred = true;
             this.routeHandle(to, from, next, {path: '/error/500', hash: to.hash, query: to.query, params: to.params});
         });
         return;

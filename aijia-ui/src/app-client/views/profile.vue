@@ -5,7 +5,7 @@
 </style>
 <template>
     <div class="view-container about-view">
-        <div>this is client about page</div>
+        <div>this is client profile page</div>
     </div>
 </template>
 <script lang="ts">
@@ -20,27 +20,27 @@
         },
         components: {}
     })
-    export default class AboutView extends Vue {
-        private name: string = 'AboutView';
+    export default class ProfileView extends Vue {
+        private name: string = 'ProfileView';
 
         private principal: AppPrincipal | undefined;
 
         private cache: SpacesCache | undefined;
 
         created(): void {
-            console.debug('[Lifecycle] <AboutView> --> {created}', this.principal, this.cache);
+            console.debug('[Lifecycle] <ProfileView> --> {created}', this.principal, this.cache);
         }
 
         mounted(): void {
-            console.debug('[Lifecycle] <AboutView> --> {mounted}');
+            console.debug('[Lifecycle] <ProfileView> --> {mounted}');
         }
 
         updated(): void {
-            console.debug('[Lifecycle] <AboutView> --> {updated}');
+            console.debug('[Lifecycle] <ProfileView> --> {updated}');
         }
 
         destroyed(): void {
-            console.debug('[Lifecycle] <AboutView> --> {destroyed}');
+            console.debug('[Lifecycle] <ProfileView> --> {destroyed}');
         }
 
     }
