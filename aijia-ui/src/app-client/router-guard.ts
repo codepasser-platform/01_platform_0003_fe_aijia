@@ -13,6 +13,7 @@ export class RouterGuard {
 
     private routerMatcher: RouterMatcher = new RouterMatcher(WHITELIST);
     private initialized: boolean = false;
+    private exception_occurred: boolean = false;
 
     constructor() {
     }
@@ -38,6 +39,12 @@ export class RouterGuard {
             return;
         }
 
+        if (this.exception_occurred) {
+            console.error('[Listener] <RouterGuard> --> {permission} ---> server exception occurred');
+            next();
+            return;
+        }
+
         // 2 登录处理
         this.sessionStatus().then((response) => {
             console.log('[Listener] <RouterGuard> --> {permission} ---> status', '[{response : ', response.data.session, '}]');
@@ -48,6 +55,7 @@ export class RouterGuard {
                     this.initializePrincipal(_response.data);
                     this.routeHandle(to, from, next);
                 }).catch((_reason) => {
+                    this.exception_occurred = true;
                     console.error('[Listener] <RouterGuard> --> {permission} ---> me', '[{reason : ', _reason, '}]');
                     this.routeHandle(to, from, next, {path: '/error/500', hash: to.hash, query: to.query, params: to.params});
                 })
@@ -63,6 +71,7 @@ export class RouterGuard {
             }
         }).catch((reason) => {
             console.error('[Listener] <RouterGuard> --> {permission} ---> status', '[{reason : ', reason, '}]');
+            this.exception_occurred = true;
             this.routeHandle(to, from, next, {path: '/error/500', hash: to.hash, query: to.query, params: to.params});
         });
         return;
