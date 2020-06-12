@@ -1,5 +1,5 @@
 import {shallowMount} from '@vue/test-utils'
-import Welcome from '@/components/welcome.vue'
+import Welcome from '@/app/components/welcome.vue'
 
 describe('welcome.vue', () => {
     it('renders props.msg when passed', () => {

@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts">
-    import Navigator from '@/components/navigator/index.vue'
+    import Navigator from '@/app-client/components/navigator/index.vue'
     import {mapGetters} from "vuex";
 
     const _ScreenLayout = {

@@ -10,7 +10,7 @@
     </div>
 </template>
 <script lang="ts">
-    import Welcome from '@/components/welcome.vue';
+    import Welcome from '@/app/components/welcome.vue';
     import {Component, Vue} from 'vue-property-decorator';
     import {mapGetters} from "vuex";
     import {AppPrincipal} from "@/store/modules/app";
