@@ -1,4 +1,4 @@
-<style scoped lang="scss">
+<style scoped lang="less">
     .case-view {
         text-align: center;
     }

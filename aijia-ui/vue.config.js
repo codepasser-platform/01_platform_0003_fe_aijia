@@ -145,18 +145,6 @@ module.exports = {
      * chainWebpack
      */
     chainWebpack: config => {
-        const oneOfsMap = config.module.rule('scss').oneOfs.store;
-        oneOfsMap.forEach(item => {
-            item
-                .use('sass-resources-loader')
-                .loader('sass-resources-loader')
-                .options(
-                    {
-                        // Or array of paths
-                        resources: ['src/assets/styles/variables.scss']
-                    }
-                ).end()
-        });
         config.entry('app').add('babel-polyfill');
         config.entry('client').add('babel-polyfill');
     },
@@ -164,48 +152,57 @@ module.exports = {
      * css loader options
      */
     css: {
-        // loaderOptions: {
-        //     // postcss: {
-        //     //     plugins: [
-        //     //         /** Default values
-        //     //          * rootValue: 100,
-        //     //          * unitPrecision: 5,
-        //     //          * selectorBlackList: [],
-        //     //          * propWhiteList: [],
-        //     //          * propBlackList: [],
-        //     //          * ignoreIdentifier: false,
-        //     //          * replace: true,
-        //     //          * mediaQuery: false,
-        //     //          * minPixelValue: 0,
-        //     //          * exclude: undefined
-        //     //          */
-        //     //         require('postcss-plugin-px2rem')(
-        //     //             {
-        //     //                 /* 换算基数, 比例：16px:100% 12px:75% 10px:62.5% */
-        //     //                 rootValue: 100,
-        //     //                 /* 允许REM单位增长到的十进制数字 */
-        //     //                 unitPrecision: 5,
-        //     //                 /* 选择器黑名单 */
-        //     //                 selectorBlackList: [],
-        //     //                 /* 属性白名单 */
-        //     //                 propWhiteList: [],
-        //     //                 /* 属性黑名单 */
-        //     //                 propBlackList: [], // '*','!border'
-        //     //                 /* 忽略单个属性(boolean/string)，启用后，replace将自动设置为true。*/
-        //     //                 ignoreIdentifier: false,
-        //     //                 /* 替换包含REM的规则(boolean)，而不是添加回退。*/
-        //     //                 replace: true,
-        //     //                 /* 允许在媒体查询中转换px(boolean)。*/
-        //     //                 mediaQuery: false,
-        //     //                 /* 设置要替换的最小像素值 */
-        //     //                 minPixelValue: 0,
-        //     //                 /* 排除路径 (reg)*/
-        //     //                 exclude: /(node_modules)|(app\\)|(app\/)/
-        //     //             }
-        //     //         )
-        //     //     ]
-        //     // }
-        // }
+        loaderOptions: {
+            sass: {
+                prependData: `@import '@/assets/styles/variables.scss';`
+            },
+            less: {
+                lessOptions: {
+                    javascriptEnabled: true
+                },
+                prependData: `@import '@/assets/styles/variables.less';`
+            },
+            // postcss: {
+            //     plugins: [
+            //         /** Default values
+            //          * rootValue: 100,
+            //          * unitPrecision: 5,
+            //          * selectorBlackList: [],
+            //          * propWhiteList: [],
+            //          * propBlackList: [],
+            //          * ignoreIdentifier: false,
+            //          * replace: true,
+            //          * mediaQuery: false,
+            //          * minPixelValue: 0,
+            //          * exclude: undefined
+            //          */
+            //         require('postcss-plugin-px2rem')(
+            //             {
+            //                 /* 换算基数, 比例：16px:100% 12px:75% 10px:62.5% */
+            //                 rootValue: 100,
+            //                 /* 允许REM单位增长到的十进制数字 */
+            //                 unitPrecision: 5,
+            //                 /* 选择器黑名单 */
+            //                 selectorBlackList: [],
+            //                 /* 属性白名单 */
+            //                 propWhiteList: [],
+            //                 /* 属性黑名单 */
+            //                 propBlackList: [], // '*','!border'
+            //                 /* 忽略单个属性(boolean/string)，启用后，replace将自动设置为true。*/
+            //                 ignoreIdentifier: false,
+            //                 /* 替换包含REM的规则(boolean)，而不是添加回退。*/
+            //                 replace: true,
+            //                 /* 允许在媒体查询中转换px(boolean)。*/
+            //                 mediaQuery: false,
+            //                 /* 设置要替换的最小像素值 */
+            //                 minPixelValue: 0,
+            //                 /* 排除路径 (reg)*/
+            //                 exclude: /(node_modules)|(app\\)|(app\/)/
+            //             }
+            //         )
+            //     ]
+            // }
+        }
     },
     /**
      * 所有 webpack-dev-server 的选项都支持。
