@@ -18,9 +18,7 @@ declare global {
         dateAdd: (interval: string, quantity: number) => Date;
         dateDiff: (interval: string, compareTo: Date) => number;
     }
-
 }
-export {};
 
 /**
  * 数字千位符.
@@ -153,3 +151,5 @@ Date.prototype.dateDiff = function (interval: string, compareTo: Date): number {
 
     return k[interval];
 };
+
+export {};

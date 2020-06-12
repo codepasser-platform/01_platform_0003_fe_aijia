@@ -1,6 +1,7 @@
 import request from '../service';
+import {AxiosPromise} from "axios";
 
-export function _sampleMockSearch(page: number, size: number, _conditions?: any) {
+export const _sampleMockSearch: (page: number, size: number, conditions?: any) => AxiosPromise = (page, size, conditions) => {
     const pagination: any = {
         page: page,
         size: size
@@ -9,6 +10,6 @@ export function _sampleMockSearch(page: number, size: number, _conditions?: any)
         url: process.env.VUE_APP_API_CONTEXT + 'mock/sample/search',
         method: 'post',
         params: pagination,
-        data: _conditions
+        data: conditions
     });
-}
+};

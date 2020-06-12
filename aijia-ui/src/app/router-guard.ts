@@ -90,6 +90,7 @@ export class RouterGuard {
     }
 
     private initializeRouter(to: Route, from: Route): void {
+        // TODO principal permission with api load
         // async routers
         router.addRoutes(asyncRouterMap);
         this.initialized = true;
@@ -97,7 +98,6 @@ export class RouterGuard {
     }
 
     private initializePrincipal(principal: AppPrincipal): void {
-        // TODO principal permission with api load
         store.commit('SET_PRINCIPAL', principal);
         console.log('[Listener] <RouterGuard> --> {initialize} ---> principal', '[{principal : ', principal, '}]');
     }
