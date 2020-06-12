@@ -1,4 +1,4 @@
-console.log('[Loading] <Router> --> {router}');
+console.debug('[Loading] <Router> --> {router}');
 
 import Vue from 'vue';
 import VueRouter, {RouteConfig} from 'vue-router';

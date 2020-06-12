@@ -1,4 +1,4 @@
 import './console';
 import './extends';
 import './matcher';
-console.log('[Loading] <Utils> --> {console,extends,matcher}');
+console.debug('[Loading] <Utils> --> {console,extends,matcher}');

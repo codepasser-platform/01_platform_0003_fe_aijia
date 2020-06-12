@@ -1,4 +1,4 @@
-console.log('[Loading] <Router> --> {guard}');
+console.debug('[Loading] <Router> --> {guard}');
 
 import {AppPrincipal, SessionStatus} from "@/store/modules/app";
 import {NavigationGuardNext, RawLocation, Route} from 'vue-router';
@@ -30,14 +30,7 @@ export class RouterGuard {
     private permission(to: Route, from: Route, next: NavigationGuardNext<Vue>): void {
         let whitelistMatchResult = this.routerMatcher.matchPath(to.path);
         console.log('[Listener] <RouterGuard> --> {permission}', '[{from : ', from.path, '},{to : ', to.path, '},{whitelist : ', whitelistMatchResult + '}]');
-        // 1 白名单校验
-        if (whitelistMatchResult) {
-            console.log('[Listener] <RouterGuard> --> {permission} ---> whitelist check pass', '[{to : ', to.path + '}]');
-            this.routeHandle(to, from, next);
-            return;
-        }
-
-        // 2 登录信息校验
+        // 1 已登录
         console.log('[Listener] <RouterGuard> --> {permission} ---> principal check', '[{principal : ', store.state.app.principal, '}]');
         if (store.state.app.principal) {
             console.log('[Listener] <RouterGuard> --> {permission} ---> principal check pass', '[{principal : ', store.state.app.principal, '}]');
@@ -45,10 +38,11 @@ export class RouterGuard {
             return;
         }
 
-        // 3 未登录处理
+        // 2 登录处理
         this.sessionStatus().then((response) => {
             console.log('[Listener] <RouterGuard> --> {permission} ---> status', '[{response : ', response.data.session, '}]');
             if (response && response.data && response.data.session === SessionStatus.AUTHORIZED) {
+                // 2.1 已登录状态
                 this.sessionMe().then((_response) => {
                     console.log('[Listener] <RouterGuard> --> {permission} ---> me', '[{response : ', _response.data, '}]');
                     this.initializePrincipal(_response.data);
@@ -58,7 +52,14 @@ export class RouterGuard {
                     this.routeHandle(to, from, next, {path: '/error/500', hash: to.hash, query: to.query, params: to.params});
                 })
             } else {
-                this.routeHandle(to, from, next, {path: '/error/401', hash: to.hash, query: to.query, params: to.params});
+                if (whitelistMatchResult) {
+                    // 2.2 访问白名单
+                    console.log('[Listener] <RouterGuard> --> {permission} ---> whitelist check pass', '[{to : ', to.path + '}]');
+                    this.routeHandle(to, from, next);
+                } else {
+                    // 2.3 未登录访问黑名单
+                    this.routeHandle(to, from, next, {path: '/error/401', hash: to.hash, query: to.query, params: to.params});
+                }
             }
         }).catch((reason) => {
             console.error('[Listener] <RouterGuard> --> {permission} ---> status', '[{reason : ', reason, '}]');
@@ -70,7 +71,7 @@ export class RouterGuard {
     private routeHandle(to: Route, from: Route, next: NavigationGuardNext<Vue>, redirect?: RawLocation): void {
         console.log('[Listener] <RouterGuard> --> {routeHandle}', '[{from : ', from.path, '},{to : ', to.path, '},{hash : ', to.hash, '},{query : ', to.query, '},{params : ', to.params, '},{redirect : ', redirect, '}]');
         // Initialize & Proxy pass
-        if (!this.initialized) {
+        if (store.state.app.principal && !this.initialized) {
             this.initializeRouter(to, from);
             console.log('[Listener] <RouterGuard> --> {routeHandle} ---> proxy pass', '[{to : ', to.path + '}]');
             next({path: to.path, hash: to.hash, query: to.query, params: to.params});
