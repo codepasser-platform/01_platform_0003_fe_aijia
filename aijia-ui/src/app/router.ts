@@ -3,7 +3,7 @@ console.debug('[Loading] <Router> --> {router}');
 import Vue from 'vue';
 import VueRouter, {RouteConfig} from 'vue-router';
 /** Layout **/
-import ScreenLayout from '@/layout/app/screen.vue';
+import ScreenLayout from '@/layout/screen.vue';
 /** Error **/
 import ERROR_401 from '@/error/401.vue';
 import ERROR_403 from '@/error/403.vue';

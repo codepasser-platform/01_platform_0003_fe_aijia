@@ -4,14 +4,13 @@
 <template>
     <div class="layout-container layout-screen">
         <div class="layout-body body-container">
-            <navigator></navigator>
+            <wg-navigator></wg-navigator>
             <router-view/>
         </div>
     </div>
 </template>
 
 <script lang="ts">
-    import Navigator from '@/app-client/components/navigator/index.vue';
     import {Component, Vue} from 'vue-property-decorator';
     import {mapGetters} from "vuex";
 
@@ -19,7 +18,7 @@
         computed: {
             ...mapGetters([])
         },
-        components: {Navigator}
+        components: {}
     })
     export default class ScreenLayout extends Vue {
         private name: string = 'ScreenLayout';

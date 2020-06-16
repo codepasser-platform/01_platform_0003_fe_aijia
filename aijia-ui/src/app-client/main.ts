@@ -1,8 +1,9 @@
-import '@/assets/styles/common.less'
+import '@/assets/styles/common.less';
 import Vue from 'vue';
 import iview from 'view-design';
 import '@/registerServiceWorker';
 import '@/utils';
+import '@/widgets'
 import store from '@/store';
 
 import client from './client.vue';
