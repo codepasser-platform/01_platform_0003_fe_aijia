@@ -11,33 +11,33 @@
 </template>
 
 <script lang="ts">
-    import Navigator from '@/app-client/components/navigator/index.vue'
+    import Navigator from '@/app-client/components/navigator/index.vue';
+    import {Component, Vue} from 'vue-property-decorator';
     import {mapGetters} from "vuex";
 
-    const _ScreenLayout = {
-        name: 'ScreenLayout',
-        created: () => {
-            console.debug('[Lifecycle] <ScreenLayout> --> {created}');
-        },
-        mounted: () => {
-            console.debug('[Lifecycle] <ScreenLayout> --> {mounted}');
-        },
-        updated: () => {
-            console.debug('[Lifecycle] <ScreenLayout> --> {updated}');
-        },
-        destroyed: () => {
-            console.debug('[Lifecycle] <ScreenLayout> --> {destroyed}');
-        },
-        data: () => {
-            return {};
-        },
-        methods: {},
+    @Component({
         computed: {
             ...mapGetters([])
         },
-        components: {
-            Navigator
+        components: {Navigator}
+    })
+    export default class ScreenLayout extends Vue {
+        private name: string = 'ScreenLayout';
+
+        created(): void {
+            console.debug('[Lifecycle] <ScreenLayout> --> {created}');
+        }
+
+        mounted(): void {
+            console.debug('[Lifecycle] <ScreenLayout> --> {mounted}');
+        }
+
+        updated(): void {
+            console.debug('[Lifecycle] <ScreenLayout> --> {updated}');
+        }
+
+        destroyed(): void {
+            console.debug('[Lifecycle] <ScreenLayout> --> {destroyed}');
         }
     }
-    export default _ScreenLayout;
 </script>
