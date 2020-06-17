@@ -10,11 +10,11 @@
     </div>
 </template>
 <script lang="ts">
-    import Welcome from '@/app/components/welcome.vue';
     import {Component, Vue} from 'vue-property-decorator';
-    import {mapGetters} from "vuex";
-    import {AppPrincipal} from "@/store/modules/app";
-    import {SpacesCache} from "@/store/modules/spaces";
+    import {mapGetters} from 'vuex';
+    import {AppPrincipal} from '@/store/modules/app';
+    import {SpacesCache} from '@/store/modules/spaces';
+    import Welcome from '@/app/components/welcome.vue';
 
     @Component({
         computed: {

@@ -9,7 +9,7 @@
 
 <script lang="ts">
     import {Component, Vue} from 'vue-property-decorator';
-    import {mapGetters} from "vuex";
+    import {mapGetters} from 'vuex';
 
     @Component({
         computed: {
