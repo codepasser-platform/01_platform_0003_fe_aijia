@@ -42,14 +42,30 @@
     @Component({
         computed: {
             ...mapGetters(['principal'])
-        }
+        },
+        components: {}
     })
-    export default class Navigator extends Vue {
+    export default class NavigatorWidget extends Vue {
+        private name: string = 'NavigatorWidget';
+
         @Prop() private msg!: string;
+
         private principal: AppPrincipal | undefined;
 
         created(): void {
-            console.debug('[Lifecycle] <Navigator> --> {created}', this.principal);
+            console.debug('[Lifecycle] <NavigatorWidget> --> {created}', this.principal);
+        }
+
+        mounted(): void {
+            console.debug('[Lifecycle] <NavigatorWidget> --> {mounted}');
+        }
+
+        updated(): void {
+            console.debug('[Lifecycle] <NavigatorWidget> --> {updated}');
+        }
+
+        destroyed(): void {
+            console.debug('[Lifecycle] <NavigatorWidget> --> {destroyed}');
         }
     }
 </script>

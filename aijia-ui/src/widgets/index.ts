@@ -1,10 +1,10 @@
 import Vue from 'vue';
-import Navigator from '@/widgets/navigator/index.vue';
+import NavigatorWidget from '@/widgets/navigator/index.vue';
 
 const WgNavigator = {
     install: () => {
         // console.log('Widgets SelectTree -> install');
-        Vue.component('WgNavigator', Navigator);
+        Vue.component('WgNavigator', NavigatorWidget);
     }
 };
 Vue.use(WgNavigator);
