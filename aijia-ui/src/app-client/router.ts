@@ -4,6 +4,7 @@ import Vue from 'vue';
 import VueRouter, {RouteConfig} from 'vue-router';
 /** Layout **/
 import ScreenLayout from '@/layout/screen.vue';
+import ModuleLayout from '@/layout/module.vue';
 /** Error **/
 import ERROR_401 from '@/error/401.vue';
 import ERROR_403 from '@/error/403.vue';
@@ -62,7 +63,7 @@ export const asyncRouterMap: Array<RouteConfig> = [
     //  Micro
     {
         path: '/case',
-        component: ScreenLayout,
+        component: ModuleLayout,
         meta: {title: 'case', hidden: true},
         children: [
             {
