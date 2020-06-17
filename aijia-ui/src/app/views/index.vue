@@ -1,10 +1,10 @@
 <style scoped lang="less">
-    .index-view {
+    .view-index {
         text-align: center;
     }
 </style>
 <template>
-    <div class="view-container index-view">
+    <div class="view-container view-index">
         <img alt="Vue logo" src="../../assets/logo.png">
         <welcome msg="Welcome to Your Vue.js App"/>
     </div>

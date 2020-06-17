@@ -1,10 +1,10 @@
 <style scoped lang="less">
-    .home-view {
+    .view-home {
         text-align: center;
     }
 </style>
 <template>
-    <div class="view-container home-view">
+    <div class="view-container view-home">
         <div>this is home page</div>
     </div>
 </template>

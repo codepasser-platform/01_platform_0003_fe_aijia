@@ -1,10 +1,10 @@
 <style scoped lang="less">
-    .about-view {
+    .profile-view {
         text-align: center;
     }
 </style>
 <template>
-    <div class="view-container about-view">
+    <div class="view-container profile-view">
         <div>this is profile page</div>
     </div>
 </template>

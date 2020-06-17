@@ -1,11 +1,11 @@
 <style scoped lang="less">
-    .navigator-container {
+    .widget-navigator {
         text-align: center;
     }
 </style>
 
 <template>
-    <div class="component-container navigator-container">
+    <div class="widget-container widget-navigator">
         <div class="navigator">
             <a href="/ui">App</a>
             |

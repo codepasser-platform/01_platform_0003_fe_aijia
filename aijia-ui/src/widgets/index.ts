@@ -9,4 +9,4 @@ const WgNavigator = {
 };
 Vue.use(WgNavigator);
 
-console.debug('[Loading] <Widgets> --> {WgNavigator}');
+console.debug('[Loading] <Widgets> --> {wg-navigator}');

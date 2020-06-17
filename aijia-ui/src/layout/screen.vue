@@ -3,7 +3,7 @@
 
 <template>
     <div class="layout-container layout-screen">
-        <div class="layout-body body-container">
+        <div class="layout-body-container">
             <wg-navigator></wg-navigator>
             <router-view/>
         </div>

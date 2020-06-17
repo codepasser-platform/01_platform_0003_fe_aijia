@@ -15,3 +15,4 @@ const store = new Vuex.Store({
 });
 
 export default store;
+console.debug('[Loading] <Store> --> {app,spaces}');

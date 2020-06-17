@@ -1,10 +1,10 @@
 <style scoped lang="less">
-    .case-view {
+    .view-detail {
         text-align: center;
     }
 </style>
 <template>
-    <div class="view-container case-view">
+    <div class="view-container view-detail">
         <div>this is client case detail page</div>
     </div>
 </template>
