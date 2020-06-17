@@ -3,6 +3,8 @@ import Vue from 'vue';
 import iview from 'view-design';
 import '@/registerServiceWorker';
 import '@/utils';
+import '@/directives';
+import '@/filters';
 import '@/widgets'
 import store from '@/store';
 
