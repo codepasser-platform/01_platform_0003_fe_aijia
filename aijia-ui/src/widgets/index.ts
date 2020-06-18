@@ -1,13 +1,13 @@
 import Vue from 'vue';
-import NavigatorWidget from '@/widgets/navigator/index.vue';
+import BaseNavigatorWidget from '@/widgets/navigator/base.vue';
 import BackgroundWidget from '@/widgets/background/index.vue';
 
-const WgNavigator = {
+const WgBaseNavigator = {
     install: () => {
-        Vue.component('WgNavigator', NavigatorWidget);
+        Vue.component('WgBaseNavigator', BaseNavigatorWidget);
     }
 };
-Vue.use(WgNavigator);
+Vue.use(WgBaseNavigator);
 
 
 const WgBackground = {

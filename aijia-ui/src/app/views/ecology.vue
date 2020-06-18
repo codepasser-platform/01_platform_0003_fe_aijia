@@ -1,11 +1,12 @@
 <style scoped lang="less">
-    .view-index {
+    .view-ecology {
         text-align: center;
     }
 </style>
 <template>
-    <div class="view-container view-index">
-        <div>this is client index page</div>
+    <div class="view-container view-ecology">
+        <img alt="Vue logo" src="../../assets/logo.png">
+        <welcome msg="Welcome to Your Vue.js App"/>
     </div>
 </template>
 <script lang="ts">
@@ -13,34 +14,37 @@
     import {mapGetters} from 'vuex';
     import {AppPrincipal} from '@/store/modules/app';
     import {SpacesCache} from '@/store/modules/spaces';
+    import Welcome from '@/app/components/welcome.vue';
 
     @Component({
         computed: {
             ...mapGetters(['principal', 'cache'])
         },
-        components: {}
+        components: {
+            Welcome
+        }
     })
-    export default class IndexView extends Vue {
-        private name: string = 'IndexView';
+    export default class EcologyView extends Vue {
+        private name: string = 'EcologyView';
 
         private principal: AppPrincipal | undefined;
 
         private cache: SpacesCache | undefined;
 
         created(): void {
-            console.debug('[Lifecycle] <IndexView> --> {created}', this.principal, this.cache);
+            console.debug('[Lifecycle] <EcologyView> --> {created}', this.principal, this.cache);
         }
 
         mounted(): void {
-            console.debug('[Lifecycle] <IndexView> --> {mounted}');
+            console.debug('[Lifecycle] <EcologyView> --> {mounted}');
         }
 
         updated(): void {
-            console.debug('[Lifecycle] <IndexView> --> {updated}');
+            console.debug('[Lifecycle] <EcologyView> --> {updated}');
         }
 
         destroyed(): void {
-            console.debug('[Lifecycle] <IndexView> --> {destroyed}');
+            console.debug('[Lifecycle] <EcologyView> --> {destroyed}');
         }
 
     }

@@ -2,7 +2,7 @@
 </style>
 
 <template>
-    <div class="layout-container layout-screen">
+    <div class="layout-container layout-show">
         <wg-background></wg-background>
         <div class="layout-body-container">
             <wg-base-navigator></wg-base-navigator>
@@ -21,23 +21,23 @@
         },
         components: {}
     })
-    export default class ScreenLayout extends Vue {
-        private name: string = 'ScreenLayout';
+    export default class ShowLayout extends Vue {
+        private name: string = 'ShowLayout';
 
         created(): void {
-            console.debug('[Lifecycle] <ScreenLayout> --> {created}');
+            console.debug('[Lifecycle] <ShowLayout> --> {created}');
         }
 
         mounted(): void {
-            console.debug('[Lifecycle] <ScreenLayout> --> {mounted}');
+            console.debug('[Lifecycle] <ShowLayout> --> {mounted}');
         }
 
         updated(): void {
-            console.debug('[Lifecycle] <ScreenLayout> --> {updated}');
+            console.debug('[Lifecycle] <ShowLayout> --> {updated}');
         }
 
         destroyed(): void {
-            console.debug('[Lifecycle] <ScreenLayout> --> {destroyed}');
+            console.debug('[Lifecycle] <ShowLayout> --> {destroyed}');
         }
     }
 </script>

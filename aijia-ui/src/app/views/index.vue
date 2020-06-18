@@ -5,8 +5,7 @@
 </style>
 <template>
     <div class="view-container view-index">
-        <img alt="Vue logo" src="../../assets/logo.png">
-        <welcome msg="Welcome to Your Vue.js App"/>
+        <div>this is index page</div>
     </div>
 </template>
 <script lang="ts">
@@ -14,15 +13,12 @@
     import {mapGetters} from 'vuex';
     import {AppPrincipal} from '@/store/modules/app';
     import {SpacesCache} from '@/store/modules/spaces';
-    import Welcome from '@/app/components/welcome.vue';
 
     @Component({
         computed: {
             ...mapGetters(['principal', 'cache'])
         },
-        components: {
-            Welcome
-        }
+        components: {}
     })
     export default class IndexView extends Vue {
         private name: string = 'IndexView';

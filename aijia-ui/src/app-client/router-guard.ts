@@ -8,7 +8,7 @@ import RouterMatcher from '@/utils/matcher';
 import {_me, _status} from "@/services/api/session-api";
 
 // 静态目录[不主动获取session principal]
-const STATIC_LIST: string[] = ['/', '/client.html', '/error/401', '/error/403', '/error/404', '/error/500'];
+const STATIC_LIST: string[] = ['/', '/client.html', '/ecology/**', '/error/**'];
 // 白名单[主动获取session principal]
 const WHITE_LIST: string[] = ['/home']; // '/profile'
 

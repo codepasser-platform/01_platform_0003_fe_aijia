@@ -4,7 +4,7 @@
 <template>
     <div class="layout-container layout-module">
         <div class="layout-body-container">
-            <wg-navigator></wg-navigator>
+            <wg-base-navigator></wg-base-navigator>
             <router-view/>
         </div>
     </div>

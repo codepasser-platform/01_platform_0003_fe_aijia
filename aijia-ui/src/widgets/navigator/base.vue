@@ -15,6 +15,8 @@
             |
             <router-link :to="{name:'profile'}">Profile</router-link>
             |
+            <router-link :to="{name:'ecology'}">Ecology</router-link>
+            |
             <a href="/ui/client.html">Client</a>
         </div>
         <div class="navigator">
@@ -45,27 +47,27 @@
         },
         components: {}
     })
-    export default class NavigatorWidget extends Vue {
-        private name: string = 'NavigatorWidget';
+    export default class BaseNavigatorWidget extends Vue {
+        private name: string = 'BaseNavigatorWidget';
 
         @Prop() private msg!: string;
 
         private principal: AppPrincipal | undefined;
 
         created(): void {
-            console.debug('[Lifecycle] <NavigatorWidget> --> {created}', this.principal);
+            console.debug('[Lifecycle] <BaseNavigatorWidget> --> {created}', this.principal);
         }
 
         mounted(): void {
-            console.debug('[Lifecycle] <NavigatorWidget> --> {mounted}');
+            console.debug('[Lifecycle] <BaseNavigatorWidget> --> {mounted}');
         }
 
         updated(): void {
-            console.debug('[Lifecycle] <NavigatorWidget> --> {updated}');
+            console.debug('[Lifecycle] <BaseNavigatorWidget> --> {updated}');
         }
 
         destroyed(): void {
-            console.debug('[Lifecycle] <NavigatorWidget> --> {destroyed}');
+            console.debug('[Lifecycle] <BaseNavigatorWidget> --> {destroyed}');
         }
     }
 </script>

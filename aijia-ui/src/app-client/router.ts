@@ -4,6 +4,7 @@ import Vue from 'vue';
 import VueRouter, {RouteConfig} from 'vue-router';
 /** Layout **/
 import ScreenLayout from '@/layout/screen.vue';
+import ShowLayout from '@/layout/show.vue';
 import ModuleLayout from '@/layout/module.vue';
 /** Error **/
 import ERROR_401 from '@/error/401.vue';
@@ -41,6 +42,17 @@ export const constantRouterMap: Array<RouteConfig> = [
                 path: 'profile',
                 name: 'profile',
                 component: () => import(/* webpackChunkName: 'client-profile' */ './views/profile.vue')
+            }
+        ]
+    },
+    {
+        path: '/ecology',
+        component: ShowLayout,
+        children: [
+            {
+                path: '',
+                name: 'ecology',
+                component: () => import(/* webpackChunkName: 'client-ecology' */ './views/ecology.vue')
             }
         ]
     },
