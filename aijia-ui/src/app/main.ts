@@ -1,4 +1,4 @@
-import '@/assets/styles/common.less';
+import '@/assets/styles/ui.less';
 import Vue from 'vue';
 import iview from 'view-design';
 import '@/registerServiceWorker';

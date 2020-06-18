@@ -153,14 +153,18 @@ module.exports = {
      */
     css: {
         loaderOptions: {
+            // Switch SCSS
+            // @see https://github.com/webpack-contrib/sass-loader
             sass: {
                 prependData: `@import '@/assets/styles/variables.scss';`
             },
+            // Switch LESS
+            // @see https://github.com/webpack-contrib/less-loader
             less: {
                 lessOptions: {
                     javascriptEnabled: true
                 },
-                prependData: `@import '@/assets/styles/variables.less';`
+                appendData: `@import '@/assets/styles/variables.less';`
             },
             // postcss: {
             //     plugins: [
