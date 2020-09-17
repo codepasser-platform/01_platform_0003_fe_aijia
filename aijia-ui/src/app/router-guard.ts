@@ -2,7 +2,8 @@ console.debug('[Loading] <Router> --> {guard}');
 
 import {AppPrincipal, SessionStatus} from "@/store/modules/app";
 import {NavigationGuardNext, RawLocation, Route} from 'vue-router';
-import router, {asyncRouterMap} from './router';
+import {LoadingBar} from 'view-design';
+import router, {asyncRouterMap, notfoundRouterMap} from './router';
 import store from '@/store';
 import RouterMatcher from '@/utils/matcher';
 import {_me, _status} from "@/services/api/session-api";
@@ -26,7 +27,11 @@ export class RouterGuard {
 
     private start(): void {
         router.beforeEach((to, from, next) => {
+            LoadingBar.start();
             this.permission(to, from, next);
+        });
+        router.afterEach((to, from) => {
+            LoadingBar.finish();
         });
     }
 
@@ -105,6 +110,7 @@ export class RouterGuard {
         // TODO principal permission with api load
         // async routers
         router.addRoutes(asyncRouterMap);
+        router.addRoutes(notfoundRouterMap);
         this.initialized = true;
         console.log('[Listener] <RouterGuard> --> {initialize} ---> router', '[{from : ', from.path, '},{to : ', to.path + '}]');
     }

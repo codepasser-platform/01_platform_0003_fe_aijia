@@ -84,7 +84,10 @@ export const asyncRouterMap: Array<RouteConfig> = [
                 component: () => import(/* webpackChunkName: 'case-detail' */ './views/case/detail.vue')
             }
         ]
-    },
+    }
+];
+
+export const notfoundRouterMap: Array<RouteConfig> = [
     {path: '*', redirect: '/error/404'}
 ];
 
