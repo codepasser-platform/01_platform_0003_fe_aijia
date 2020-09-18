@@ -32,6 +32,8 @@
             <router-link :to="{name:'case-list',query:{a:1},hash:'#1',params:{b:1}}">case-list</router-link>
             |
             <router-link :to="{name:'case-detail',query:{a:2},hash:'#2',params:{b:2}}">case-detail</router-link>
+            |
+            <router-link :to="{name:'case-unit',query:{a:2},hash:'#2',params:{b:2}}">case-unit</router-link>
         </div>
     </div>
 </template>

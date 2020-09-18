@@ -87,6 +87,11 @@ export const asyncRouterMap: Array<RouteConfig> = [
                 path: 'detail',
                 name: 'case-detail',
                 component: () => import(/* webpackChunkName: 'client-case-detail' */ './views/case/detail.vue')
+            },
+            {
+                path: 'unit',
+                name: 'case-unit',
+                component: () => import(/* webpackChunkName: 'client-case-unit' */ './views/case/unit.vue')
             }
         ]
     }
