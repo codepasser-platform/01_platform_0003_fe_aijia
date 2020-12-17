@@ -7,7 +7,7 @@
 <template>
     <div class="widget-container widget-navigator">
         <div class="navigator">
-            <a href="/ui">App</a>
+            <a href="/ui/aijia/">App</a>
             |
             <router-link :to="{name:'index'}">Index</router-link>
             |
@@ -17,7 +17,7 @@
             |
             <router-link :to="{name:'ecology'}">Ecology</router-link>
             |
-            <a href="/ui/client.html">Client</a>
+            <a href="/ui/aijia/client.html">Client</a>
         </div>
         <div class="navigator">
             <router-link :to="{name:'401'}">401</router-link>

@@ -224,7 +224,7 @@ module.exports = {
         hot: true,  /* 热部署 */
         /* 使用代理 */
         proxy: {
-            '/web-api/': {
+            '^/web-api/': {
                 target: 'http://127.0.0.1:8001',//后台服务器地址
                 changeOrigin: true, /* 允许跨域 */
                 pathRewrite: {//后台访问serverPath
